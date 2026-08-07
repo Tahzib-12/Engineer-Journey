@@ -119,3 +119,64 @@ A  and B are working on fronted, C is working on backend, D is working on integr
 - Why wasn't Git the first Version Control System?
 - Why did Linus Torvalds create Git?
 - What is a Distributed Version Control System?
+
+# Lesson 2 — Version Control
+
+## What is Version Control?
+
+Version control is a system for recording changes made to files over time. It allows developers to maintain the history of a project, inspect previous versions, and collaborate without losing track of changes.
+
+---
+
+## Local Version Control
+
+Local version control stores different versions of a project on an individual's computer.
+
+It is useful for tracking personal changes, but the history is dependent on that machine. If the machine is lost or damaged, the version history may also be lost.
+
+---
+
+## Centralized Version Control
+
+Centralized version control stores the main repository on a central server.
+
+Multiple developers connect to this server to obtain changes and share their work.
+
+The central server becomes an important dependency for collaboration and repository operations.
+
+---
+
+## Distributed Version Control
+
+Distributed version control gives each developer a complete repository, including its history.
+
+Developers can work and create commits locally without requiring an internet connection. They can later exchange their changes with other repositories.
+
+Git uses a distributed version control model.
+
+---
+
+## Comparison
+
+| Feature | Local | Centralized | Distributed |
+|---|---|---|---|
+| History stored locally | Yes | Limited/No | Yes |
+| Central server required | No | Yes | No |
+| Offline commits | Yes | Generally limited | Yes |
+| Collaboration | Limited | Good | Excellent |
+| Complete repository for each developer | Usually | No | Yes |
+
+---
+
+## My Understanding
+
+[Write your own explanation here.]
+
+---
+
+## Questions
+
+- Why does Git store a complete history locally?
+- What exactly is a repository?
+- What is the difference between a repository and a working directory?
+- Why does Git call itself "distributed"?
