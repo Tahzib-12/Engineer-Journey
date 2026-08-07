@@ -170,7 +170,7 @@ Git uses a distributed version control model.
 
 ## My Understanding
 
-[Write your own explanation here.]
+How Local, centralized, distributed version operates.
 
 ---
 
