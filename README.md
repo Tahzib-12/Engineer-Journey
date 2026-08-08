@@ -80,3 +80,7 @@ Currently studying:
 ---
 
 *"Small improvements every day lead to extraordinary results over time."*
+
+## Current Experiment
+
+Learning how Git's staging area works.
