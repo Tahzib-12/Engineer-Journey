@@ -180,3 +180,82 @@ How Local, centralized, distributed version operates.
 - What exactly is a repository?
 - What is the difference between a repository and a working directory?
 - Why does Git call itself "distributed"?
+
+# Lesson 4 — Git Internals
+
+## Git Objects
+1]blob   2]tree   3]commit
+Git Repository
+│
+└── Commit
+     │
+     └── Tree
+          │
+          ├── Tree (Journal)
+          │     └── Blob (journal file)
+          │
+          ├── Tree (Notes)
+          │     └── Blob (Git.md)
+          │
+          ├── Blob (README.md)
+          │
+          └── Blob (git-experiment.txt)
+
+## Commit Object
+A commit points to a tree and record the history/metadeta
+
+## Tree Object
+Tree represent the directory structure
+
+## Blob Object
+A blob represents file contents
+
+## How They Are Connected
+                    COMMIT
+                      │
+        ┌─────────────┼──────────────┐
+        │             │              │
+        ▼             ▼              ▼
+      tree          parent        metadata
+        │             │
+        │             ▼
+        │          3cc79dd
+        │
+        ▼
+   project structure
+
+## What I Observed
+HEAD
+ ↓
+Commit
+ ↓
+Tree
+ ↓
+Blob / Tree
+ ↓
+Actual file content
+
+## Commands I Used
+git diff
+git diff --staged
+git log --oneline -3
+ls -la
+ls -la .git
+find .git -maxdepth 2 -type f
+find .git/objects -type f
+git count-objects -v
+git cat-file -t HEAD : what type of obj is HEAD pointing to
+git cat-file -p HEAD : what does that obj actually contains
+
+## My Understanding
+1. working directory (git add)
+2. Staging Area (git commit)
+3. Repository
+before: changes not staged for commit, after git add . changes to be commited
+
+git actually stores objects. object are build around tree, blob, commits, SHA-1 hashes
+
+## Questions
+1] How to actually remember all this?
+2] why git call itself distributed
+3]?????
