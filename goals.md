@@ -1,5 +1,4 @@
-# section
-
+# The Thoughts
 Where there is a will there is a way. 
 #
 Things I want to point out
