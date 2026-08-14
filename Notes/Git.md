@@ -258,4 +258,143 @@ git actually stores objects. object are build around tree, blob, commits, SHA-1 
 ## Questions
 1] How to actually remember all this?
 2] why git call itself distributed
-3]?????
+
+# Lesson 5 — Git History, HEAD, and Branches
+
+## 1. Git History
+
+Git stores project history as a sequence of commits.
+
+Each commit points to its previous commit through a parent reference.
+
+```text
+Commit C
+   ↓ parent
+Commit B
+   ↓ parent
+Commit A
+```
+
+Because commits know their parents, Git can move backward through the project's history.
+
+---
+
+## 2. HEAD
+
+`HEAD` represents the current position in the repository.
+
+When working on the `main` branch:
+
+```text
+HEAD
+ ↓
+main
+ ↓
+current commit
+```
+
+`HEAD` normally points to the currently checked-out branch, while the branch points to the current commit.
+
+---
+
+## 3. Branch
+
+A branch such as `main` is a reference that points to a commit.
+
+For example:
+
+```text
+main → Commit A
+```
+
+After creating a new commit:
+
+```text
+main → Commit B → Commit A
+```
+
+The branch moves forward to the newly created commit.
+
+Branches do not contain a separate copy of the entire project. They are lightweight references to commits.
+
+---
+
+## 4. HEAD vs Main
+
+They are related but different:
+
+```text
+HEAD → main → Commit
+```
+
+- **HEAD** tells Git what is currently checked out.
+- **main** is a branch reference.
+- **Commit** contains the commit data and points to its parent.
+
+---
+
+## 5. Useful Commands
+
+### View commit history
+
+```bash
+git log --oneline --decorate -5
+```
+
+Shows recent commits in a compact form.
+
+### Find the full hash of the current commit
+
+```bash
+git rev-parse HEAD
+```
+
+### Find the commit pointed to by `main`
+
+```bash
+git rev-parse main
+```
+
+When `HEAD` is on `main`, these normally produce the same commit hash.
+
+### Inspect the latest commit
+
+```bash
+git show HEAD
+```
+
+### Show only a summary of files changed
+
+```bash
+git show --stat HEAD
+```
+
+---
+
+## 6. Mental Model
+
+```text
+HEAD
+ ↓
+main
+ ↓
+Commit C
+ ↓ parent
+Commit B
+ ↓ parent
+Commit A
+```
+
+`HEAD` tells Git where we are.
+
+`main` tells Git which branch we are on.
+
+Each commit points backward to its parent.
+
+---
+
+## Key Takeaway
+
+A Git branch is essentially a movable reference to a commit, while `HEAD` identifies what we currently have checked out.
+
+This allows Git to maintain a history of commits and move through that history efficiently.
